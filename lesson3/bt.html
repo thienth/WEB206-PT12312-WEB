@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>	
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Image</th>
+				<th>
+					<button id="add">Add</button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+
+
+	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#add').click(function(){
+			var id = prompt('Nhap ID');
+			var name = prompt('Nhap Name');
+			var image = prompt('Nhap Image');
+			var tr = `<tr>
+						<td>${id}</td>
+						<td>${name}</td>
+						<td>
+							<img src="${image}" width="200">
+						</td>
+						<td>
+							<button class="removebtn" onclick="removebtn(this)">Delete</button>
+							<button onclick="updatebtn(this)">Update</button>
+						</td>
+					</tr>`;
+			$('tbody').append(tr);
+		});
+
+		function removebtn(element){
+			$(element).parent().parent().remove();			
+		}
+	</script>
+</body>
+</html>
